@@ -4,10 +4,11 @@ import './CoinInfo.css'
 
 const CoinInfo = (props) => {
   const [coin, setCoin] = useState(null)
-  useEffect(async () => {
-    const coinInfo = await FetchData.fetchCurrencyById(props.match.params.id)
-    console.log(coinInfo.genesis_date)
-    setCoin(coinInfo)
+  useEffect(() => {
+    FetchData.fetchCurrencyById(props.match.params.id).then(res => {
+      setCoin(res)
+    })
+    // eslint-disable-next-line
   }, [])
   return coin ?
     <div className={`coin-info`}>
@@ -52,6 +53,7 @@ const CoinInfo = (props) => {
           </div>
           <div className="coin-info__contact__media__item">
             <span>Community</span>
+
             <div className="coin-info__contact__tab">
               <span><a href={`https://twitter.com/${coin.links.twitter_screen_name}`}>Twitter</a></span>
               <span><a href={coin.links.subreddit_url}>Reddit</a></span>

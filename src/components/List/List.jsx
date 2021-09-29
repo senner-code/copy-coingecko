@@ -27,11 +27,13 @@ const List = (props) => {
     }
 
 
+    // eslint-disable-next-line
     useEffect(() => {
         if (list) {
             setList(sortData(sortType, list, sortMethod))
             setIsLoading(true)
         }
+        // eslint-disable-next-line
     }, [sortMethod])
 
     useEffect(() => {
@@ -46,6 +48,7 @@ const List = (props) => {
             massive.push(<PageList reset={setIsLoading} key={i} index={i + 1}/>)
         }
         setPage(...[massive])
+        // eslint-disable-next-line
     }, [props.match.params.id, changePage])
 
 
