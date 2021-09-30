@@ -14,12 +14,12 @@ const ListItem = ({coin}) => {
       {/*Цена*/}
       <div className={'list-item__price'}>{coin.current_price}$</div>
       {/*Обьём*/}
-      <div className={'list-item__volume'}>{coin.total_volume}$</div>
+      <div className={'list-item__volume'}>{coin.total_volume > 10000000? `${(coin.total_volume/10000000).toFixed(2)}kkk` : coin.total_volume}$</div>
       {/*24 h*/}
       <div className={`list-item__percent ${coin.market_cap_change_percentage_24h > 0 ? 'list-item_active' : null}`}>
-        {coin.market_cap_change_percentage_24h}%</div>
+        {coin.market_cap_change_percentage_24h.toFixed(2)}%</div>
       <div className={`list-item__percent ${coin.ath_change_percentage > 0 ? 'list-item_active' : null}`}>
-        {coin.ath_change_percentage}%</div>
+        {coin.ath_change_percentage.toFixed(2)}%</div>
     </div>
   );
 };

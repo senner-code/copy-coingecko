@@ -63,14 +63,12 @@ const List = (props) => {
                       <div className='header__input'>
                           <input type={'text'} placeholder={'Min: 10'} ref={InputValue}/>
                           <button className={'header__button'} onClick={() => {
-                              console.log(Number(InputValue.current.value))
-                              if (10 <= Number(InputValue.current.value) <= 250) {
+                              if (10 <= (Number(InputValue.current.value)) && (Number(InputValue.current.value)) <= 250) {
                                   setIsLoading(false)
                                   setPageSize(InputValue.current.value)
                                   setChangePage(!changePage)
                               } else {
                                   alert('Error size Min Size 10 / max size 250')
-
                               }
                           }}>Change
                           </button>
@@ -96,9 +94,11 @@ const List = (props) => {
                       ALL TIME
                   </div>
               </div>
-              {isLoading ? list.map((el) => {
-                  return <ListItem key={el.id} coin={el}/>
-              }) : null}
+              <div className="table">
+                  {isLoading ? list.map((el) => {
+                      return <ListItem key={el.id} coin={el}/>
+                  }) : null}
+              </div>
           </div>
       </div>)
 };

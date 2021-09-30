@@ -60,10 +60,10 @@
 
 .list{
     font-size: 20px;
-    overflow-x: auto;
 }
 
 .list__header{
+    position: relative;
     color: black;
     display: grid;
     grid-auto-flow: column;
